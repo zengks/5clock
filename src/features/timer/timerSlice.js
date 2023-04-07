@@ -13,19 +13,42 @@ export const timerSlice = createSlice({
     initialState,
     reducers: {
         increaseBreak: (state) => {
-            state.breakLength += 1
+            if (state.breakLength < 60) {
+                state.breakLength += 1
+            } else {
+                state.breakLength = 60
+            }
         },
         decreaseBreak: (state) => {
-            state.breakLength -= 1
+            if (state.breakLength > 1) {
+                state.breakLength -= 1
+            } else {
+                state.breakLength = 1
+            }
         },
         increaseSession: (state) => {
-            state.sessionLength += 1
+            if (state.sessionLength < 60) {
+                state.sessionLength += 1
+            } else {
+                state.sessionLength = 60
+            }
         },
         decreaseSession: (state) => {
-            state.sessionLength -= 1
+            if (state.sessionLength > 1) {
+                state.sessionLength -= 1
+            } else {
+                state.sessionLength = 1
+            }
+        },
+        resetTimer: (state) => {
+            state.breakLength = 5
+            state.sessionLength = 25
+            state.isPlayed = false
+            state.isPaused = true
+            state.isReset = true
         }
     }
 })
 
-export const { increaseBreak, decreaseBreak, increaseSession, decreaseSession } = timerSlice.actions
+export const { increaseBreak, decreaseBreak, increaseSession, decreaseSession, resetTimer } = timerSlice.actions
 export default timerSlice.reducer

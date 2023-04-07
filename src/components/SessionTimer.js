@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 function SessionTimer() {
   const sessionLengthValue = useSelector(state => state.timer.sessionLength)
-
+  
   return (
     <div className={styles.timer} id='time-left'>
       <p className={styles.title}>Session</p>
