@@ -1,0 +1,21 @@
+.control {
+    color: white;
+    font-size: 1.8rem;
+    text-align: center;
+    
+}
+
+.adjust {
+    display: flex;
+    justify-content: space-evenly;
+    line-height: 3rem;
+}
+
+.adjust button {
+    margin-top: 5px;
+    font-size: 1.8rem;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}

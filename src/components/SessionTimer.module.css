@@ -1,0 +1,17 @@
+.timer {
+    width: 200px;
+    margin: 0 auto;
+    border: 7px solid #13353A;
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+    padding: 12px 40px;
+}
+
+.title {
+    font-size: 38px;
+}
+
+.time {
+    font-size: 80px;
+}

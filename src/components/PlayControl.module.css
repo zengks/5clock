@@ -1,0 +1,14 @@
+.playControls {
+   width: 200px;
+   margin: 1rem auto;
+   text-align: center;
+}
+
+.playControls button {
+    font-size: 3rem;
+    margin: .5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
