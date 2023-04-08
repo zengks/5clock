@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    breakLength: 5,
-    sessionLength: 25,
+    breakLength: '5',
+    sessionLength: '25',
     isPlayed: false,
     isPaused: true,
     isReset: false,
@@ -13,31 +13,31 @@ export const timerSlice = createSlice({
     initialState,
     reducers: {
         increaseBreak: (state) => {
-            if (state.breakLength < 60) {
-                state.breakLength += 1
+            if (parseInt(state.breakLength) < 60) {
+                state.breakLength = (parseInt(state.breakLength) + 1).toString()
             } else {
-                state.breakLength = 60
+                state.breakLength = '60'
             }
         },
         decreaseBreak: (state) => {
-            if (state.breakLength > 1) {
-                state.breakLength -= 1
+            if (parseInt(state.breakLength) > 1) {
+                state.breakLength = (parseInt(state.breakLength) - 1).toString()
             } else {
-                state.breakLength = 1
+                state.breakLength = '1'
             }
         },
         increaseSession: (state) => {
-            if (state.sessionLength < 60) {
-                state.sessionLength += 1
+            if (parseInt(state.sessionLength) < 60) {
+                state.sessionLength = (parseInt(state.sessionLength) + 1).toString()
             } else {
-                state.sessionLength = 60
+                state.sessionLength = '60'
             }
         },
         decreaseSession: (state) => {
-            if (state.sessionLength > 1) {
-                state.sessionLength -= 1
+            if (parseInt(state.sessionLength) > 1) {
+                state.sessionLength = (parseInt(state.sessionLength) - 1).toString()
             } else {
-                state.sessionLength = 1
+                state.sessionLength = '1'
             }
         },
         resetTimer: (state) => {
@@ -46,9 +46,17 @@ export const timerSlice = createSlice({
             state.isPlayed = false
             state.isPaused = true
             state.isReset = true
-        }
+        },
+        startAndStop: (state) => {
+            state.isPlayed = !state.isPlayed
+            state.isPaused = !state.isPaused
+            state.isReset = false
+            state.isAlarm = false
+        },
+
+
     }
 })
 
-export const { increaseBreak, decreaseBreak, increaseSession, decreaseSession, resetTimer } = timerSlice.actions
+export const { increaseBreak, decreaseBreak, increaseSession, decreaseSession, resetTimer, startAndStop } = timerSlice.actions
 export default timerSlice.reducer
